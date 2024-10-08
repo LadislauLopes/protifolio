@@ -1,0 +1,98 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.parallax {
+  background-image: url("/assests/images/fundo neon.jpg");
+  min-height: 500px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content {
+  height: 500px;
+  background-color: #282a35;
+  text-align: center;
+  padding: 50px;
+  color: white;
+}
+
+.content h1 {
+  font-size: 2em; 
+  margin-bottom: 20px; 
+}
+
+.title-portifolio {
+  position: relative;
+  display: flex;
+  color: white;
+  font-size: 90px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  text-shadow: 0 0 10px #1eff4e, 0 0 20px #1eff4e, 0 0 80px #1eff4e,
+    0 0 120px #1eff4e;
+}
+
+.title-portifolio:before,
+.title-portifolio:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: #ffffff;
+  box-shadow: 0 0 10px #1eff4e, 0 0 10px #1eff4e;
+  z-index: -1;
+}
+
+.title-portifolio:before {
+  bottom: 80px;
+}
+
+.title-portifolio:after {
+  top: 100px;
+}
+
+h1 {
+  font-size: 10rem;
+}
+
+h1 span {
+  animation: animate 0.5s linear infinite;
+}
+
+h1 span:nth-child(1) {
+  animation-delay: 0.25s;
+}
+
+h1 span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+h1 span:nth-child(3) {
+  animation-delay: 0.35s;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
