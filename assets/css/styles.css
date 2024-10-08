@@ -6,7 +6,7 @@ html {
 }
 
 .parallax {
-  background-image: url("/assests/images/fundo neon.jpg");
+  background-image: url("/assets/images/fundo neon.jpg");
   min-height: 500px;
   background-attachment: fixed;
   background-position: center;
