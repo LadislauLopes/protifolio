@@ -1,0 +1,35 @@
+# Trabalho local da taste-skill (direção sorteada, screenshots do inspetor)
+.taste-skill/
+
+# Pasta que o workflow do GitHub Pages monta antes de publicar
+_site/
+
+# Segredos e configurações locais: nunca vão para o repositório
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Documentos soltos na raiz (currículos, cartas, relatórios). O que vai ao ar fica em assets/docs/
+/*.pdf
+/*.docx
+/*.odt
+/*.xlsx
+
+# Rascunhos e cópias
+*.bak
+*.tmp
+*.orig
+
+# Sistema e editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+
+# Dependências e logs, se um dia houver build
+node_modules/
+*.log

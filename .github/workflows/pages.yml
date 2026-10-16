@@ -1,0 +1,67 @@
+# Publica o portfólio no GitHub Pages a cada push na main.
+# O site é estático: não há build, só montamos a pasta _site com o que vai ao ar
+# (index.html e assets/), para README, .github e afins ficarem de fora.
+name: Publicar no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Um deploy por vez; um push novo espera o anterior terminar em vez de cancelá-lo.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/configure-pages@v6
+
+      - name: Montar o site
+        run: |
+          mkdir _site
+          cp index.html _site/
+          cp -r assets _site/
+
+      - name: Conferir arquivos referenciados
+        # Falha o deploy se o HTML ou o CSS apontam para um arquivo que não existe no site.
+        run: |
+          python3 - <<'EOF'
+          import pathlib, re, sys
+          site = pathlib.Path("_site").resolve()
+          externo = re.compile(r"^(https?:|mailto:|tel:|data:|#)")
+          html = (site / "index.html").read_text(encoding="utf-8")
+          refs = [site / r for r in re.findall(r'(?:src|href)="([^"]+)"', html) if not externo.match(r)]
+          for css in site.glob("assets/css/*.css"):
+              for u in re.findall(r'url\(\s*"?([^")]+)"?\s*\)', css.read_text(encoding="utf-8")):
+                  if not externo.match(u):
+                      refs.append(css.parent / u)
+          faltando = sorted({str(p.resolve()) for p in refs if not p.resolve().exists()})
+          for r in faltando:
+              print(f"::error::arquivo referenciado não existe: {r.replace(str(site) + '/', '')}")
+          print(f"{len(refs)} referências conferidas, {len(faltando)} faltando")
+          sys.exit(1 if faltando else 0)
+          EOF
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
