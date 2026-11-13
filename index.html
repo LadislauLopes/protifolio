@@ -6,17 +6,18 @@
     <title>Ladislau Lopes, desenvolvedor Python</title>
     <meta
       name="description"
-      content="Ladislau Lopes, desenvolvedor Python pleno em Rio Branco (AC). APIs, IA com RAG, automação e DevOps com Docker e GitLab CI para o Judiciário."
+      content="Ladislau Lopes, desenvolvedor Python pleno em Rio Branco (AC). Automação de dados com Airflow e Docker, IA com RAG em produção e CI/CD com GitLab no Tribunal de Justiça do Acre."
     />
-    <meta name="theme-color" content="#dfdedb" />
+    <meta name="theme-color" content="#0e121b" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
     <meta property="og:title" content="Ladislau Lopes, desenvolvedor Python" />
     <meta
       property="og:description"
-      content="APIs, IA com RAG, automação e DevOps com Docker e GitLab CI para o Judiciário, a partir de Rio Branco (AC)."
+      content="Automação de dados, IA em produção e a infraestrutura que põe tudo no ar, a partir de Rio Branco (AC)."
     />
-    <link rel="preload" href="assets/fonts/stix-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="assets/css/reset.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
     <script>document.documentElement.classList.add("js");</script>
@@ -28,55 +29,132 @@
     <svg class="defs" aria-hidden="true" focusable="false">
       <defs>
         <marker id="seta" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
-          <path d="M0 0 L10 5 L0 10 z" fill="#2456d6" />
+          <path d="M0 0 L10 5 L0 10 z" fill="#f5a33a" />
         </marker>
       </defs>
     </svg>
 
     <main>
-      <div class="split" data-split>
-        <div class="column">
-          <header class="hero" id="inicio" data-plate="rio-acre">
-            <figure class="plate plate-photo" data-plate-id="rio-acre">
-              <img
-                class="drift"
-                src="assets/images/rio-acre.jpg"
-                width="1400"
-                height="933"
-                alt="Rio Branco vista do alto: o Rio Acre, as pontes e a cidade cercada de floresta"
-                fetchpriority="high"
-              />
-            </figure>
-            <div class="card">
-              <p class="wordmark" data-rise style="--i: 0">Ladislau Lopes</p>
-              <h1 class="display" data-rise style="--i: 1">Do código<br /> à produção</h1>
-              <p class="hero-lead" data-rise style="--i: 2">
-                Sou desenvolvedor Python pleno em Rio Branco, no Acre. Faço APIs,
-                IA e automações para o Judiciário e coloco tudo no ar com Docker
-                e GitLab CI.
-              </p>
-              <a class="button" href="#contato" data-rise style="--i: 3">Falar comigo</a>
-              <ul class="hero-links" role="list">
-                <li><a class="link" href="#curriculos">Currículos</a></li>
-                <li><a class="link" href="https://github.com/LadislauLopes" rel="noopener">GitHub</a></li>
-                <li><a class="link" href="https://www.linkedin.com/in/ladislaulopes/" rel="noopener">LinkedIn</a></li>
-              </ul>
+      <!-- 1. Quem é, o que faz e o combo: a plataforma de automação jogável -->
+      <header class="hero" id="inicio">
+        <div class="hero-text">
+          <h1 class="display" data-rise style="--i: 0"><span>Ladislau</span><span>Lopes</span></h1>
+          <p class="hero-role" data-rise style="--i: 1">Desenvolvedor Python pleno em Rio Branco, no Acre</p>
+          <p class="hero-lead" data-rise style="--i: 2">
+            Construo automação de dados, IA em produção e a infraestrutura que
+            põe tudo no ar, nos sistemas do Tribunal de Justiça do Acre.
+          </p>
+          <ul class="hero-links" role="list" data-rise style="--i: 3">
+            <li><a class="link" href="https://github.com/LadislauLopes" rel="noopener">GitHub</a></li>
+            <li><a class="link" href="https://www.linkedin.com/in/ladislaulopes/" rel="noopener">LinkedIn</a></li>
+            <li><a class="link" href="mailto:ladislau.contato.01@gmail.com">Email</a></li>
+          </ul>
+          <div class="hero-actions" data-rise style="--i: 4">
+            <a class="button" href="#contato">Falar comigo</a>
+            <a class="button button-quiet" href="#curriculos">Currículos</a>
+          </div>
+        </div>
+
+        <section class="combo" id="combo" aria-labelledby="combo-titulo">
+          <h2 class="sr-only" id="combo-titulo">O pipeline num combo</h2>
+          <div class="pad" data-pad>
+            <div class="pad-top">
+              <div class="pad-hits" aria-hidden="true"><span class="pad-count" data-count>9</span><span class="pad-word" data-word>hits</span></div>
+              <p class="pad-caption">Cada golpe é uma etapa da plataforma de automação que construí no Tribunal, na ordem real.</p>
             </div>
-          </header>
-
-          <section class="work" id="trabalho" aria-labelledby="trabalho-titulo">
-            <h2 class="head" id="trabalho-titulo" data-reveal>No Tribunal de Justiça</h2>
-            <p class="intro" data-reveal style="--i: 1">
-              Desde 2024 trabalho nos sistemas do Tribunal de Justiça do Acre,
-              primeiro como estagiário e, desde maio de 2026, como desenvolvedor
-              pleno da SONDA IT. Os sistemas são internos, então mostro o
-              problema, a arquitetura e a stack, sem nomes, telas ou dados.
+            <div class="pad-board" data-board tabindex="0" role="application" aria-label="Controle arcade. Alavanca nas setas ou em W A S D; botões 1 2 3 4 em U I J K ou nas teclas 1 a 4.">
+              <div class="stick"><span class="ball" data-ball></span></div>
+              <div class="buttons">
+                <button type="button" class="btn btn-top" data-btn="1" tabindex="-1">1</button>
+                <button type="button" class="btn btn-top" data-btn="2" tabindex="-1">2</button>
+                <span class="btn-off"></span><span class="btn-off"></span>
+                <button type="button" class="btn" data-btn="3" tabindex="-1">3</button>
+                <button type="button" class="btn" data-btn="4" tabindex="-1">4</button>
+                <span class="btn-off"></span><span class="btn-off"></span>
+              </div>
+            </div>
+            <div class="pad-touch" role="group" aria-label="Direções da alavanca">
+              <button type="button" data-dir="b" aria-label="Para trás">←</button>
+              <button type="button" data-dir="u" aria-label="Para cima">↑</button>
+              <button type="button" data-dir="uf" aria-label="Para cima e para a frente">↗</button>
+              <button type="button" data-dir="f" aria-label="Para a frente">→</button>
+            </div>
+            <p class="pad-log" data-log aria-live="polite">Combo completo: do agendamento ao aviso no chat.</p>
+            <ol class="moves" data-moves>
+              <li><span class="move-input">uf4</span><span class="move-stage">Airflow</span><span class="move-what">agenda e dispara</span></li>
+              <li><span class="move-input">4</span><span class="move-stage">Docker</span><span class="move-what">isola cada robô</span></li>
+              <li><span class="move-input">f,F+3</span><span class="move-stage">Selenoid</span><span class="move-what">dá o navegador</span></li>
+              <li><span class="move-input">b1,2</span><span class="move-stage">Python</span><span class="move-what">coleta</span></li>
+              <li><span class="move-input">f3+4,2</span><span class="move-stage">pandas</span><span class="move-what">trata</span></li>
+              <li><span class="move-input">2</span><span class="move-stage">PostgreSQL</span><span class="move-what">grava</span></li>
+              <li><span class="move-input">f,f,F+2+4</span><span class="move-stage">Google Chat</span><span class="move-what">avisa a equipe</span></li>
+            </ol>
+            <div class="combo-actions only-js">
+              <button type="button" class="button button-small" data-demo>Ver o combo</button>
+              <button type="button" class="button button-small button-quiet" data-reset>Recomeçar</button>
+            </div>
+            <p class="combo-hint only-js">
+              Clique no controle e jogue: <kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> na alavanca e
+              <kbd>U</kbd> <kbd>I</kbd> <kbd>J</kbd> <kbd>K</kbd> (ou <kbd>1</kbd> a <kbd>4</kbd>) nos botões.
+              No celular, use a tela.
             </p>
+          </div>
+        </section>
+      </header>
 
-            <ol class="work-list" role="list">
-              <li class="work-item" id="t-chatbot" data-plate="d-rag" data-reveal>
-                <figure class="plate plate-drawing" data-plate-id="d-rag">
-                  <svg class="dg" viewBox="0 0 800 600" role="img" aria-label="Cascata do chatbot: a mensagem chega do Chatwoot, a busca vetorial traz 15 trechos, a reordenação mantém 5 e a resposta sai com a fonte; sem confiança, a conversa vai para um atendente humano.">
+      <!-- 2. O trabalho: três destaques e o resto numa linha -->
+      <section class="work" id="trabalho" aria-labelledby="trabalho-titulo">
+        <div class="section-head">
+          <h2 class="head" id="trabalho-titulo" data-reveal>No Tribunal de Justiça</h2>
+          <p data-reveal style="--i: 1">
+            Desde 2024 nos sistemas do TJAC: estagiário até maio de 2026 e, desde
+            então, desenvolvedor pleno pela SONDA IT. Os sistemas são internos,
+            então mostro o problema, a arquitetura e a stack, sem nomes, telas ou dados.
+          </p>
+        </div>
+
+        <article class="feature" data-reveal>
+          <div class="feature-text">
+            <h3 class="feature-name">Plataforma de automação</h3>
+            <p class="feature-meta">Dados e DevOps, 2025–2026</p>
+            <p>
+              Construí do zero a stack onde rodam os robôs do time. O Airflow 3
+              orquestra, cada robô roda no seu contêiner Docker, o Selenoid dá o
+              navegador e o Google Chat avisa quando algo falha. Um robô novo é só
+              um repositório novo, sem mexer no Airflow.
+            </p>
+            <p>
+              Nela rodam o saneamento dos assuntos processuais contra a tabela do
+              CNJ, a cada quatro horas e com execução idempotente, e a sincronização
+              de um CouchDB para o Elasticsearch com trilha de auditoria.
+            </p>
+          </div>
+          <figure class="feature-figure"><svg class="dg" viewBox="0 0 800 600" role="img" aria-label="Cada repositório de automação segue o mesmo modelo, com Dockerfile, compose, pipeline e documentação, e roda no Airflow 3, um container por tarefa, usando um grid Selenoid.">
+                    <rect class="t" x="30" y="40" width="340" height="380" /><text class="l" x="56" y="92">Cada repositório</text>
+                    <text class="l s" x="56" y="152">infra/docker/Dockerfile</text><text class="l s" x="56" y="200">docker-compose.yml</text><text class="l s" x="56" y="248">.gitlab-ci.yml</text><text class="l s" x="56" y="296">.env.example</text><text class="l s" x="56" y="344">README, diagrama e ADR</text>
+                    <path class="a" d="M370 230 H392 V115 H412" />
+                    <rect class="b" x="420" y="60" width="350" height="110" /><text class="w" x="444" y="108">Airflow 3</text><text class="w s" x="444" y="142">CeleryExecutor e Redis</text>
+                    <path class="a" d="M595 170 V222" />
+                    <rect class="b" x="420" y="230" width="350" height="110" /><text class="w" x="444" y="278">DockerOperator</text><text class="w s" x="444" y="312">um container por tarefa</text>
+                    <path class="a" d="M595 340 V392" />
+                    <rect class="t" x="420" y="400" width="350" height="110" /><text class="l" x="444" y="448">Grid Selenoid</text><text class="l s" x="444" y="482">Chrome com VNC e vídeo</text>
+                    <text class="l s" x="30" y="570">Limites de CPU e memória, alertas no Google Chat</text>
+                  </svg></figure>
+        </article>
+
+        <article class="feature feature-flip" data-reveal>
+          <div class="feature-text">
+            <h3 class="feature-name">Chatbot com RAG</h3>
+            <p class="feature-meta">IA generativa, 2026</p>
+            <p>
+              Atendimento com IA em produção. Uma API em Flask recebe as mensagens
+              do Chatwoot, busca trechos no PostgreSQL com pgvector, reordena com
+              Gemini e responde em streaming; sem confiança, passa a conversa para um
+              atendente humano. Medi a latência de cada etapa, migrei o índice
+              vetorial para HNSW e fiz o painel em React 19 para gerir as bases.
+            </p>
+          </div>
+          <figure class="feature-figure"><svg class="dg" viewBox="0 0 800 600" role="img" aria-label="Cascata do chatbot: a mensagem chega do Chatwoot, a busca vetorial traz 15 trechos, a reordenação mantém 5 e a resposta sai com a fonte; sem confiança, a conversa vai para um atendente humano.">
                     <rect class="b" x="40" y="30" width="460" height="96" /><text class="w" x="66" y="74">Mensagem do Chatwoot</text><text class="w s" x="66" y="106">chega por webhook</text>
                     <path class="a" d="M270 126 V164" />
                     <rect class="b" x="40" y="170" width="460" height="96" /><text class="w" x="66" y="214">Busca: 15 trechos</text><text class="w s" x="66" y="246">pgvector com índice HNSW</text>
@@ -86,25 +164,22 @@
                     <rect class="b" x="40" y="450" width="460" height="96" /><text class="w" x="66" y="494">Resposta com a fonte</text><text class="w s" x="66" y="526">em streaming, por parágrafo</text>
                     <path class="a" d="M500 358 H552" /><text class="l s" x="560" y="292">sem confiança</text>
                     <rect class="t" x="560" y="310" width="210" height="96" /><text class="l" x="584" y="354">Atendente</text><text class="l" x="584" y="386">humano</text>
-                  </svg>
-                </figure>
-                <h3 class="work-name">Chatbot com RAG</h3>
-                <p class="work-meta">IA generativa, 2026</p>
-                <p class="work-desc">
-                  Atendimento com IA em produção. Uma API em Flask recebe as
-                  mensagens do Chatwoot por webhook, busca trechos no PostgreSQL
-                  com pgvector, reordena com Gemini e responde em streaming. Sem
-                  confiança, passa a conversa para um atendente humano. Também
-                  medi a latência de cada etapa, migrei o índice vetorial de
-                  IVFFlat para HNSW e fiz o painel em React 19 para gerir bases,
-                  documentos e busca semântica. A API e o painel saem em imagens
-                  Docker pelo GitLab CI, em homologação e produção.
-                </p>
-              </li>
+                  </svg></figure>
+        </article>
 
-              <li class="work-item" id="t-cicd" data-plate="d-cicd" data-reveal>
-                <figure class="plate plate-drawing" data-plate-id="d-cicd">
-                  <svg class="dg" viewBox="0 0 800 600" role="img" aria-label="Pipeline de CI/CD: um push em homolog ou main dispara o build com Docker-in-Docker, a imagem vai para o registry e o deploy sai por SSH ou runner, seguido de um smoke check.">
+        <article class="feature" data-reveal>
+          <div class="feature-text">
+            <h3 class="feature-name">CI/CD e infraestrutura</h3>
+            <p class="feature-meta">DevOps, 2025–2026</p>
+            <p>
+              Escrevi os pipelines de GitLab CI de uns quinze projetos: build com
+              Docker-in-Docker, registry, deploy por SSH ou runner em homologação e
+              produção, .env gerado das variáveis protegidas e smoke check no fim.
+              Também subo e mantenho serviços self-hosted em Docker Compose, como o
+              Chatwoot de produção e o Elasticsearch com Kibana.
+            </p>
+          </div>
+          <figure class="feature-figure"><svg class="dg" viewBox="0 0 800 600" role="img" aria-label="Pipeline de CI/CD: um push em homolog ou main dispara o build com Docker-in-Docker, a imagem vai para o registry e o deploy sai por SSH ou runner, seguido de um smoke check.">
                     <rect class="b" x="40" y="30" width="460" height="96" /><text class="w" x="66" y="74">Push em homolog ou main</text><text class="w s" x="66" y="106">o GitLab CI dispara o pipeline</text>
                     <path class="a" d="M270 126 V164" />
                     <rect class="b" x="40" y="170" width="460" height="96" /><text class="w" x="66" y="214">Build com Docker-in-Docker</text><text class="w s" x="66" y="246">imagem marcada com o commit</text>
@@ -115,647 +190,148 @@
                     <path class="a" d="M500 498 H552" />
                     <rect class="t" x="560" y="450" width="210" height="96" /><text class="l" x="584" y="494">Smoke check</text><text class="l s" x="584" y="526">valida no ar</text>
                     <text class="l s" x="560" y="200">homologação</text><text class="l s" x="560" y="236">e produção</text><text class="l s" x="560" y="272">por branch</text>
-                  </svg>
-                </figure>
-                <h3 class="work-name">CI/CD com GitLab</h3>
-                <p class="work-meta">DevOps, 2025–2026</p>
-                <p class="work-desc">
-                  Escrevi os pipelines de GitLab CI de uns quinze projetos do time.
-                  O build roda com Docker-in-Docker, a imagem vai para o registry
-                  marcada com o commit e o deploy sai por SSH ou por runner no
-                  servidor, em homologação e produção conforme a branch. O .env é
-                  gerado das variáveis protegidas do CI, um smoke check valida o
-                  que subiu e jobs manuais restauram dumps do Package Registry.
-                  Também cuidei do endurecimento: headers de segurança no Nginx e
-                  segredos sem valor padrão no código.
-                </p>
-              </li>
+                  </svg></figure>
+        </article>
 
-              <li class="work-item" id="t-stack" data-plate="d-stack" data-reveal>
-                <figure class="plate plate-drawing" data-plate-id="d-stack">
-                  <svg class="dg" viewBox="0 0 800 600" role="img" aria-label="Cada repositório de automação segue o mesmo modelo, com Dockerfile, compose, pipeline e documentação, e roda no Airflow 3, um container por tarefa, usando um grid Selenoid.">
-                    <rect class="t" x="30" y="40" width="340" height="380" /><text class="l" x="56" y="92">Cada repositório</text>
-                    <text class="l s" x="56" y="152">infra/docker/Dockerfile</text><text class="l s" x="56" y="200">docker-compose.yml</text><text class="l s" x="56" y="248">.gitlab-ci.yml</text><text class="l s" x="56" y="296">.env.example</text><text class="l s" x="56" y="344">README, diagrama e ADR</text>
-                    <path class="a" d="M370 230 H392 V115 H412" />
-                    <rect class="b" x="420" y="60" width="350" height="110" /><text class="w" x="444" y="108">Airflow 3</text><text class="w s" x="444" y="142">CeleryExecutor e Redis</text>
-                    <path class="a" d="M595 170 V222" />
-                    <rect class="b" x="420" y="230" width="350" height="110" /><text class="w" x="444" y="278">DockerOperator</text><text class="w s" x="444" y="312">um container por tarefa</text>
-                    <path class="a" d="M595 340 V392" />
-                    <rect class="t" x="420" y="400" width="350" height="110" /><text class="l" x="444" y="448">Grid Selenoid</text><text class="l s" x="444" y="482">Chrome com VNC e vídeo</text>
-                    <text class="l s" x="30" y="570">Limites de CPU e memória, alertas no Google Chat</text>
-                  </svg>
-                </figure>
-                <h3 class="work-name">Stack de automação</h3>
-                <p class="work-meta">DevOps, 2026</p>
-                <p class="work-desc">
-                  Padronizei os robôs e as automações do time numa stack só: cada
-                  repositório tem Dockerfile em infra/docker, compose, pipeline,
-                  .env.example e README com diagrama e ADR. Tudo roda no Apache
-                  Airflow 3 (CeleryExecutor, Redis, PostgreSQL), um container por
-                  tarefa com DockerOperator, e os robôs em Selenium usam um grid
-                  Selenoid com VNC e vídeo. Na operação: limites de CPU e memória
-                  por serviço, limpeza de containers órfãos, alertas de falha no
-                  Google Chat, troca de versão e a migração para um servidor novo.
-                </p>
-              </li>
+        <p class="also" data-reveal>
+          <strong>Também:</strong> painel de RH em Node.js com login pela rede (LDAP) e
+          todo o cálculo no backend; geração e validação de certidões em PDF com Flask
+          e ReportLab.
+        </p>
+      </section>
 
-              <li class="work-item" id="t-servicos" data-plate="d-servicos" data-reveal>
-                <figure class="plate plate-drawing" data-plate-id="d-servicos">
-                  <svg class="dg" viewBox="0 0 800 600" role="img" aria-label="Um servidor com um compose por serviço: Chatwoot, sistema de senhas de atendimento, Elasticsearch e Kibana, Airflow e Selenoid, Nginx e as APIs e painéis.">
-                    <rect class="t" x="30" y="40" width="740" height="460" /><text class="l" x="60" y="92">Um servidor, um compose por serviço</text>
-                    <rect class="b" x="60" y="124" width="320" height="96" /><text class="w" x="84" y="166">Chatwoot</text><text class="w s" x="84" y="198">healthcheck e init do banco</text>
-                    <rect class="b" x="420" y="124" width="320" height="96" /><text class="w" x="444" y="166">Senhas de atendimento</text><text class="w s" x="444" y="198">seed e restore de dump</text>
-                    <rect class="b" x="60" y="244" width="320" height="96" /><text class="w" x="84" y="286">Elasticsearch e Kibana</text><text class="w s" x="84" y="318">busca e painéis</text>
-                    <rect class="b" x="420" y="244" width="320" height="96" /><text class="w" x="444" y="286">Airflow e Selenoid</text><text class="w s" x="444" y="318">stack de automação</text>
-                    <rect class="b" x="60" y="364" width="320" height="96" /><text class="w" x="84" y="406">Nginx</text><text class="w s" x="84" y="438">headers de segurança</text>
-                    <rect class="b" x="420" y="364" width="320" height="96" /><text class="w" x="444" y="406">APIs e painéis</text><text class="w s" x="444" y="438">Flask, Express e React</text>
-                    <text class="l s" x="30" y="560">Deploy de cada um pelo GitLab CI</text>
-                  </svg>
-                </figure>
-                <h3 class="work-name">Serviços self-hosted</h3>
-                <p class="work-meta">DevOps, 2026</p>
-                <p class="work-desc">
-                  Subi e mantenho serviços open source em Docker Compose. O
-                  Chatwoot de produção tem healthchecks, um serviço que prepara o
-                  banco a cada subida, a identidade visual fixada e a política de
-                  segurança do widget. Também implantei um sistema de senhas de
-                  atendimento, com seed inicial e restauração de dump, e o
-                  Elasticsearch com Kibana.
-                </p>
-              </li>
+      <!-- 3. Fora do expediente -->
+      <section class="projects" id="projetos" aria-labelledby="projetos-titulo">
+        <div class="section-head">
+          <h2 class="head" id="projetos-titulo" data-reveal>Fora do expediente</h2>
+        </div>
 
-              <li class="work-item" id="t-dados" data-plate="d-saneamento" data-reveal>
-                <figure class="plate plate-drawing" data-plate-id="d-saneamento">
-                  <svg class="dg" viewBox="0 0 800 600" role="img" aria-label="Pipeline de saneamento: os assuntos de dois sistemas processuais, em MySQL e Oracle, são cruzados com a Tabela Processual Unificada do CNJ a cada quatro horas, gerando uma base saneada.">
-                    <text class="l s" x="30" y="52">A cada 4 horas, uma execução por vez</text>
-                    <rect class="b" x="30" y="90" width="250" height="100" /><text class="w" x="54" y="134">Sistema A</text><text class="w s" x="54" y="166">MySQL</text>
-                    <rect class="b" x="30" y="330" width="250" height="100" /><text class="w" x="54" y="374">Sistema B</text><text class="w s" x="54" y="406">Oracle</text>
-                    <path class="a" d="M280 140 L322 214" /><path class="a" d="M280 380 L322 318" />
-                    <rect class="b" x="330" y="190" width="240" height="160" /><text class="w" x="352" y="236">Cruzar assuntos</text><text class="w s" x="352" y="272">com a TPU do CNJ</text><text class="w s" x="352" y="304">PostgreSQL</text>
-                    <path class="a" d="M570 270 H604" />
-                    <rect class="t" x="610" y="210" width="160" height="120" /><text class="l" x="632" y="262">Base</text><text class="l" x="632" y="296">saneada</text>
-                    <text class="l s" x="30" y="540">TRUNCATE + INSERT: rodar de novo dá o mesmo resultado</text>
-                  </svg>
-                </figure>
-                <h3 class="work-name">Pipelines de dados</h3>
-                <p class="work-meta">Dados, 2025–2026</p>
-                <p class="work-desc">
-                  Saneamento dos assuntos dos processos de dois sistemas judiciais,
-                  um em MySQL e outro em Oracle, contra a Tabela Processual
-                  Unificada do CNJ, a cada quatro horas e com execução idempotente.
-                  E a sincronização de um CouchDB para o Elasticsearch: carga
-                  completa, carga incremental pelo feed de mudanças e trilha de
-                  auditoria de cada documento alterado.
-                </p>
-              </li>
+        <article class="feature feature-wide" data-reveal>
+          <figure class="feature-figure feature-photo">
+            <img src="assets/images/arcade-builder.jpg" width="1000" height="500" loading="lazy" alt="Controle arcade montado em 3D no Arcade Builder, com arte no topo e nas laterais" />
+          </figure>
+          <div class="feature-text">
+            <h3 class="feature-name">Arcade Builder</h3>
+            <p class="feature-meta">three.js, 2026</p>
+            <p>
+              Editor no navegador para planejar a arte de um controle arcade antes de
+              mandar fabricar: 9 caixas e 37 layouts, arte e texto direto no 3D, cores
+              de botões sugeridas pela arte e arquivos prontos para a gráfica e o
+              corte a laser. Fiz para ver o meu controle antes de encomendar; o da
+              imagem é ele.
+            </p>
+            <p><a class="link-plain" href="https://arcade-config.pages.dev/" rel="noopener">Testar no navegador</a></p>
+          </div>
+        </article>
 
-              <li class="work-item" id="t-painel" data-plate="d-painel" data-reveal>
-                <figure class="plate plate-drawing" data-plate-id="d-painel">
-                  <svg class="dg" viewBox="0 0 800 600" role="img" aria-label="Painel de RH: planilhas e login da rede entram numa API em Express que faz todo o cálculo, grava no PostgreSQL e entrega ao painel, que só exibe.">
-                    <rect class="t" x="270" y="40" width="260" height="96" /><text class="l" x="294" y="82">Login da rede</text><text class="l s" x="294" y="114">LDAP, por grupo</text>
-                    <path class="a" d="M400 136 V212" />
-                    <rect class="t" x="20" y="235" width="200" height="100" /><text class="l" x="44" y="294">Planilhas</text>
-                    <path class="a" d="M220 285 H264" />
-                    <rect class="b" x="270" y="220" width="260" height="130" /><text class="w" x="294" y="276">API Express</text><text class="w s" x="294" y="312">todo cálculo aqui</text>
-                    <path class="a" d="M530 285 H574" />
-                    <rect class="b" x="580" y="235" width="200" height="100" /><text class="w" x="602" y="294">PostgreSQL</text>
-                    <path class="a" d="M400 350 V432" />
-                    <rect class="t" x="270" y="440" width="260" height="100" /><text class="l" x="294" y="484">Painel</text><text class="l s" x="294" y="516">só exibe</text>
-                  </svg>
-                </figure>
-                <h3 class="work-name">Painel de RH</h3>
-                <p class="work-meta">Node.js, 2026</p>
-                <p class="work-desc">
-                  Painel de indicadores de gestão de pessoas. O login é a conta da
-                  rede (LDAP), as permissões vêm do grupo, as planilhas entram pela
-                  API e todo cálculo acontece no backend: o navegador só exibe.
-                  Express, PostgreSQL e Nginx, com pipeline próprio: build com
-                  Docker-in-Docker, registry e deploy por SSH em homologação e
-                  produção.
-                </p>
-              </li>
-
-              <li class="work-item" id="t-certidoes" data-plate="d-certidoes" data-reveal>
-                <figure class="plate plate-drawing" data-plate-id="d-certidoes">
-                  <svg class="dg" viewBox="0 0 800 600" role="img" aria-label="Certidão em PDF com selo e código de validação, que é conferido por uma página de validação que registra cada consulta.">
-                    <rect class="t" x="60" y="40" width="330" height="500" />
-                    <rect class="b" x="100" y="90" width="200" height="20" />
-                    <rect class="b" x="100" y="150" width="250" height="12" /><rect class="b" x="100" y="182" width="230" height="12" /><rect class="b" x="100" y="214" width="250" height="12" /><rect class="b" x="100" y="246" width="180" height="12" /><rect class="b" x="100" y="300" width="240" height="12" /><rect class="b" x="100" y="332" width="210" height="12" />
-                    <circle class="b" cx="150" cy="440" r="46" />
-                    <rect class="b" x="220" y="425" width="130" height="30" />
-                    <path class="a" d="M390 440 H470" />
-                    <rect class="b" x="480" y="380" width="290" height="120" /><text class="w" x="504" y="428">Validar o código</text><text class="w s" x="504" y="462">e registrar a consulta</text>
-                    <text class="l s" x="480" y="120">PDF gerado com ReportLab</text>
-                    <text class="l s" x="480" y="156">MySQL e PostgreSQL</text>
-                  </svg>
-                </figure>
-                <h3 class="work-name">Certidões em PDF</h3>
-                <p class="work-meta">Flask, 2025–2026</p>
-                <p class="work-desc">
-                  Geração e validação de certidões em PDF, com telas responsivas e
-                  registro de cada validação. Flask, MySQL, PostgreSQL e ReportLab,
-                  servido com Gunicorn em Docker e publicado pelo GitLab CI.
-                </p>
-              </li>
-
-            </ol>
-          </section>
-
-          <section class="projects" id="projetos" data-plate="p-homelab" aria-labelledby="projetos-titulo">
-            <h2 class="head" id="projetos-titulo" data-reveal>Fora do expediente</h2>
-            <ul class="project-list" role="list">
-              <li class="project" id="p-homelab">
-                <figure class="plate plate-drawing" data-plate-id="p-homelab">
-                  <svg class="dg" viewBox="0 0 800 600" role="img" aria-label="Homelab: GitLab CE e Plane CE ligados por uma ponte em FastAPI que sincroniza nos dois sentidos, e um registry Docker com TLS, autenticação e interface web.">
-                    <text class="l s" x="30" y="150">push e MR viram comentário</text>
-                    <rect class="b" x="30" y="190" width="220" height="130" /><text class="w" x="54" y="244">GitLab CE</text><text class="w s" x="54" y="280">com runner</text>
-                    <path class="a" d="M250 228 H282" /><path class="a" d="M290 282 H258" />
-                    <rect class="t" x="290" y="170" width="220" height="170" /><text class="l" x="314" y="224">Ponte</text><text class="l s" x="314" y="262">FastAPI e</text><text class="l s" x="314" y="294">webhooks</text>
-                    <path class="a" d="M510 228 H542" /><path class="a" d="M550 282 H518" />
-                    <rect class="b" x="550" y="190" width="220" height="130" /><text class="w" x="574" y="244">Plane CE</text><text class="w s" x="574" y="280">work items</text>
-                    <text class="l s" x="550" y="150">estado vira label</text>
-                    <rect class="t" x="30" y="420" width="740" height="96" /><text class="l" x="54" y="464">Registry Docker</text><text class="l s" x="54" y="496">TLS, autenticação e interface web</text>
-                  </svg>
-                </figure>
-                <button class="project-row" type="button" aria-expanded="true" aria-controls="p-homelab-texto">
-                  <span class="project-name">Homelab DevOps</span>
-                  <span class="project-year">2026</span>
-                </button>
-                <div class="project-body" id="p-homelab-texto">
-                  <div>
-                    <p>
-                      GitLab CE com runner, Plane CE e um registry Docker com TLS,
-                      autenticação e interface web, tudo em Docker Compose. O Plane
-                      só integra com o GitLab na edição paga, então escrevi a ponte:
-                      um serviço em FastAPI que recebe os webhooks dos dois lados.
-                      Push e merge request viram comentário e mudam o estado do work
-                      item; work item criado vira issue no GitLab, com proteção
-                      contra laço.
-                    </p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="project" id="p-franquias">
-                <figure class="plate plate-drawing" data-plate-id="p-franquias">
-                  <svg class="dg" viewBox="0 0 800 600" role="img" aria-label="Quarenta bancos PostgreSQL passam pelas camadas bronze, prata e ouro até uma API em FastAPI e um painel com perguntas em linguagem natural.">
-                    <text class="l s" x="30" y="96">40 bancos PostgreSQL</text>
-                    <g class="b">
-                      <rect x="30" y="120" width="30" height="30" /><rect x="68" y="120" width="30" height="30" /><rect x="106" y="120" width="30" height="30" /><rect x="144" y="120" width="30" height="30" /><rect x="182" y="120" width="30" height="30" /><rect x="220" y="120" width="30" height="30" /><rect x="258" y="120" width="30" height="30" /><rect x="296" y="120" width="30" height="30" />
-                      <rect x="30" y="158" width="30" height="30" /><rect x="68" y="158" width="30" height="30" /><rect x="106" y="158" width="30" height="30" /><rect x="144" y="158" width="30" height="30" /><rect x="182" y="158" width="30" height="30" /><rect x="220" y="158" width="30" height="30" /><rect x="258" y="158" width="30" height="30" /><rect x="296" y="158" width="30" height="30" />
-                      <rect x="30" y="196" width="30" height="30" /><rect x="68" y="196" width="30" height="30" /><rect x="106" y="196" width="30" height="30" /><rect x="144" y="196" width="30" height="30" /><rect x="182" y="196" width="30" height="30" /><rect x="220" y="196" width="30" height="30" /><rect x="258" y="196" width="30" height="30" /><rect x="296" y="196" width="30" height="30" />
-                      <rect x="30" y="234" width="30" height="30" /><rect x="68" y="234" width="30" height="30" /><rect x="106" y="234" width="30" height="30" /><rect x="144" y="234" width="30" height="30" /><rect x="182" y="234" width="30" height="30" /><rect x="220" y="234" width="30" height="30" /><rect x="258" y="234" width="30" height="30" /><rect x="296" y="234" width="30" height="30" />
-                      <rect x="30" y="272" width="30" height="30" /><rect x="68" y="272" width="30" height="30" /><rect x="106" y="272" width="30" height="30" /><rect x="144" y="272" width="30" height="30" /><rect x="182" y="272" width="30" height="30" /><rect x="220" y="272" width="30" height="30" /><rect x="258" y="272" width="30" height="30" /><rect x="296" y="272" width="30" height="30" />
-                    </g>
-                    <text class="l s" x="30" y="352">DuckDB extrai, Airflow orquestra</text>
-                    <text class="l s" x="30" y="384">dados sintéticos com Faker</text>
-                    <path class="a" d="M340 210 H398" />
-                    <rect class="t" x="405" y="60" width="365" height="86" /><text class="l" x="428" y="98">Bronze</text><text class="l s" x="428" y="128">Parquet no MinIO</text>
-                    <rect class="t" x="405" y="160" width="365" height="86" /><text class="l" x="428" y="198">Prata</text><text class="l s" x="428" y="228">staging</text>
-                    <rect class="b" x="405" y="260" width="365" height="86" /><text class="w" x="428" y="298">Ouro</text><text class="w s" x="428" y="328">star schema com dbt</text>
-                    <path class="a" d="M587 346 V394" />
-                    <rect class="b" x="405" y="400" width="365" height="80" /><text class="w" x="428" y="450">API em FastAPI</text>
-                    <path class="a" d="M587 480 V510" />
-                    <rect class="t" x="405" y="516" width="365" height="64" /><text class="l s" x="428" y="556">Painel e perguntas via Claude</text>
-                  </svg>
-                </figure>
-                <button class="project-row" type="button" aria-expanded="true" aria-controls="p-franquias-texto">
-                  <span class="project-name">Pipeline de 40 franquias</span>
-                  <span class="project-year">2026</span>
-                </button>
-                <div class="project-body" id="p-franquias-texto">
-                  <div>
-                    <p>
-                      Case de engenharia de dados para uma rede fictícia de
-                      hamburgueria: 40 bancos PostgreSQL gerados com Faker viram um
-                      data warehouse em arquitetura medalhão. O Airflow orquestra, o
-                      DuckDB extrai para Parquet no MinIO, o dbt monta o star schema
-                      com testes e uma API em FastAPI alimenta um painel que aceita
-                      perguntas em linguagem natural via Claude. Oito decisões
-                      ficaram registradas em ADR.
-                    </p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="project" id="p-tekken">
-                <figure class="plate plate-screen" data-plate-id="p-tekken">
-                  <img src="assets/images/tekken-kazuya.jpg" width="1400" height="972" loading="lazy" alt="Página do guia de matchup contra Kazuya no Guia Tekken 8, com sumário lateral e seções de visão geral e punições" />
-                </figure>
-                <button class="project-row" type="button" aria-expanded="true" aria-controls="p-tekken-texto">
-                  <span class="project-name">Guia de Tekken 8</span>
-                  <span class="project-year">2026</span>
-                </button>
-                <div class="project-body" id="p-tekken-texto">
-                  <div>
-                    <p>
-                      Guias de matchup de Tekken 8 mantidos por um grupo de
-                      jogadores, uma página por personagem: o que ele quer fazer, o
-                      que punir e como sair da pressão. Astro Starlight, em
-                      português e inglês, com busca. Nada entra no main sem pull
-                      request aprovado por outra pessoa, nem do administrador.
-                    </p>
-                    <p><a class="link-plain" href="https://github.com/LadislauLopes/Guide-Tekken" rel="noopener">Código no GitHub</a></p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="project" id="p-yugi">
-                <figure class="plate plate-screen" data-plate-id="p-yugi">
-                  <img src="assets/images/yugi.jpg" width="1400" height="603" loading="lazy" alt="Topo da página da Liga Yu-Gi-Oh! Acreana, com o logotipo da liga e o menu de início, sobre, último torneio e ranking" />
-                </figure>
-                <button class="project-row" type="button" aria-expanded="true" aria-controls="p-yugi-texto">
-                  <span class="project-name">Liga Yu-Gi-Oh! Acreana</span>
-                  <span class="project-year">2025</span>
-                </button>
-                <div class="project-body" id="p-yugi-texto">
-                  <div>
-                    <p>
-                      Página da comunidade de duelistas do Acre, com eventos, último
-                      torneio e ranking, em HTML, CSS e JavaScript. Para os
-                      torneios fiz um importador em Python que lê o XML do programa
-                      de torneio, grava em SQLite e exporta para Excel.
-                    </p>
-                    <p><a class="link-plain" href="https://github.com/LadislauLopes/pagina-yugi" rel="noopener">Código no GitHub</a></p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="project" id="p-placas">
-                <figure class="plate plate-drawing" data-plate-id="p-placas">
-                  <svg class="dg" viewBox="0 0 800 600" role="img" aria-label="Uma placa de veículo dentro de uma caixa de detecção com a etiqueta placa 0,94.">
-                    <rect class="b" x="120" y="128" width="190" height="42" /><text class="w s" x="138" y="158">placa 0,94</text>
-                    <rect class="box" x="120" y="170" width="560" height="230" />
-                    <rect class="t" x="150" y="200" width="500" height="170" /><rect class="b" x="150" y="200" width="500" height="40" />
-                    <text class="l plate-text" x="400" y="340" text-anchor="middle">BRA2E19</text>
-                    <text class="l" x="120" y="480">YOLOv8, duas rodadas de treino</text>
-                    <text class="l s" x="120" y="516">TCC em Sistemas de Informação, Ufac</text>
-                  </svg>
-                </figure>
-                <button class="project-row" type="button" aria-expanded="true" aria-controls="p-placas-texto">
-                  <span class="project-name">Placas com YOLOv8</span>
-                  <span class="project-year">2026</span>
-                </button>
-                <div class="project-body" id="p-placas-texto">
-                  <div>
-                    <p>
-                      Trabalho de conclusão de curso na Ufac: detecção de placas de
-                      veículos com YOLOv8, treinado em duas rodadas sobre um conjunto
-                      público de imagens anotadas.
-                    </p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="project" id="p-tempo">
-                <figure class="plate plate-drawing" data-plate-id="p-tempo">
-                  <svg class="dg" viewBox="0 0 800 600" role="img" aria-label="Gráfico de barras do tempo de resposta por caractere testado: um caractere demora mais que os outros, revelando o acerto.">
-                    <text class="l s" x="60" y="70">Tempo de resposta por caractere testado</text>
-                    <g class="t">
-                      <rect x="60" y="350" width="34" height="130" /><rect x="110" y="340" width="34" height="140" /><rect x="160" y="356" width="34" height="124" /><rect x="210" y="344" width="34" height="136" /><rect x="260" y="352" width="34" height="128" /><rect x="310" y="338" width="34" height="142" /><rect x="360" y="348" width="34" height="132" /><rect x="410" y="354" width="34" height="126" /><rect x="460" y="342" width="34" height="138" />
-                      <rect x="560" y="350" width="34" height="130" /><rect x="610" y="346" width="34" height="134" /><rect x="660" y="356" width="34" height="124" /><rect x="710" y="340" width="34" height="140" />
-                    </g>
-                    <rect class="b" x="510" y="150" width="34" height="330" />
-                    <text class="l s" x="430" y="132">acertou: resposta mais lenta</text>
-                    <g class="l s"><text x="68" y="512">a</text><text x="118" y="512">b</text><text x="168" y="512">c</text><text x="218" y="512">d</text><text x="268" y="512">e</text><text x="318" y="512">f</text><text x="368" y="512">g</text><text x="418" y="512">h</text><text x="468" y="512">i</text><text x="518" y="512">j</text><text x="568" y="512">k</text><text x="618" y="512">l</text><text x="668" y="512">m</text><text x="718" y="512">n</text></g>
-                    <text class="l s" x="60" y="570">A correção: hmac.compare_digest</text>
-                  </svg>
-                </figure>
-                <button class="project-row" type="button" aria-expanded="true" aria-controls="p-tempo-texto">
-                  <span class="project-name">Ataque de temporização</span>
-                  <span class="project-year">2026</span>
-                </button>
-                <div class="project-body" id="p-tempo-texto">
-                  <div>
-                    <p>
-                      Demonstração educacional de segurança: uma API local que
-                      compara a chave caractere por caractere e um script que mede o
-                      tempo de resposta e recupera a chave numa busca linear, em vez
-                      de força bruta. Mostra na prática por que existe o
-                      hmac.compare_digest.
-                    </p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="project" id="p-selenoid">
-                <figure class="plate plate-drawing" data-plate-id="p-selenoid">
-                  <svg class="dg" viewBox="0 0 800 600" role="img" aria-label="Quatro janelas de navegador num grid, uma delas gravando, com Chrome em VNC, vídeo e log por sessão.">
-                    <rect class="t" x="40" y="60" width="330" height="200" /><rect class="b" x="40" y="60" width="330" height="28" />
-                    <rect class="t" x="430" y="60" width="330" height="200" /><rect class="b" x="430" y="60" width="330" height="28" />
-                    <rect class="t" x="40" y="300" width="330" height="200" /><rect class="b" x="40" y="300" width="330" height="28" />
-                    <rect class="t" x="430" y="300" width="330" height="200" /><rect class="b" x="430" y="300" width="330" height="28" />
-                    <circle class="b" cx="80" cy="130" r="13" /><text class="l s" x="102" y="137">gravando</text>
-                    <text class="l s" x="40" y="560">Chrome em VNC, vídeo e log por sessão</text>
-                  </svg>
-                </figure>
-                <button class="project-row" type="button" aria-expanded="true" aria-controls="p-selenoid-texto">
-                  <span class="project-name">Selenium em Docker</span>
-                  <span class="project-year">2026</span>
-                </button>
-                <div class="project-body" id="p-selenoid-texto">
-                  <div>
-                    <p>
-                      Grid Selenoid no Docker com Chrome em VNC, gravação em vídeo e
-                      log por sessão, e execução em lote. Foi a base do grid que
-                      depois levei para o trabalho.
-                    </p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="project" id="p-estoque">
-                <figure class="plate plate-drawing" data-plate-id="p-estoque">
-                  <svg class="dg" viewBox="0 0 800 600" role="img" aria-label="Estante com caixas, uma seta de entrada e uma seta de saída de itens.">
-                    <rect class="t" x="250" y="110" width="90" height="70" /><rect class="t" x="350" y="130" width="70" height="50" /><rect class="t" x="440" y="100" width="110" height="80" />
-                    <rect class="b" x="230" y="180" width="340" height="14" />
-                    <rect class="t" x="260" y="270" width="120" height="60" /><rect class="t" x="400" y="250" width="80" height="80" />
-                    <rect class="b" x="230" y="330" width="340" height="14" />
-                    <rect class="t" x="250" y="410" width="70" height="70" /><rect class="t" x="340" y="420" width="100" height="60" /><rect class="t" x="460" y="400" width="80" height="80" />
-                    <rect class="b" x="230" y="480" width="340" height="14" />
-                    <text class="l s" x="40" y="232">entrada</text><path class="a" d="M40 252 H212" />
-                    <text class="l s" x="610" y="382">saída</text><path class="a" d="M588 402 H760" />
-                    <text class="l s" x="40" y="566">Django, versão desktop e exportação para Excel</text>
-                  </svg>
-                </figure>
-                <button class="project-row" type="button" aria-expanded="true" aria-controls="p-estoque-texto">
-                  <span class="project-name">Controle de estoque</span>
-                  <span class="project-year">2023–2024</span>
-                </button>
-                <div class="project-body" id="p-estoque-texto">
-                  <div>
-                    <p>
-                      O sistema de entrada e saída de itens do setor de TI que fiz
-                      no estágio da Polícia Federal. Django, com uma versão desktop
-                      em pywebview e exportação para Excel.
-                    </p>
-                  </div>
-                </div>
-              </li>
-
-              <li class="project" id="p-youtube">
-                <figure class="plate plate-drawing" data-plate-id="p-youtube">
-                  <svg class="dg" viewBox="0 0 800 600" role="img" aria-label="Um vídeo vira um arquivo de vídeo ou só o áudio.">
-                    <rect class="b" x="60" y="200" width="220" height="160" /><polygon class="w" points="140,240 140,320 212,280" />
-                    <path class="a" d="M280 280 H330 V200 H392" /><path class="a" d="M330 280 V360 H392" />
-                    <rect class="t" x="400" y="150" width="340" height="100" /><text class="l" x="424" y="210">Vídeo</text>
-                    <rect class="b" x="400" y="310" width="340" height="100" /><text class="w" x="424" y="370">Só o áudio</text>
-                    <text class="l s" x="60" y="520">Python, pela linha de comando</text>
-                  </svg>
-                </figure>
-                <button class="project-row" type="button" aria-expanded="true" aria-controls="p-youtube-texto">
-                  <span class="project-name">Download do YouTube</span>
-                  <span class="project-year">2026</span>
-                </button>
-                <div class="project-body" id="p-youtube-texto">
-                  <div>
-                    <p>
-                      Programa em Python para baixar um vídeo do YouTube ou só o
-                      áudio.
-                    </p>
-                    <p><a class="link-plain" href="https://github.com/LadislauLopes/Download-Youtube" rel="noopener">Código no GitHub</a></p>
-                  </div>
-                </div>
-              </li>
+        <div class="pair">
+          <article class="mini" data-reveal>
+            <figure class="mini-figure">
+              <img src="assets/images/tekken-kazuya.jpg" width="1400" height="972" loading="lazy" alt="Página do guia de matchup contra Kazuya no Guia Tekken 8, com sumário lateral e seções de visão geral e punições" />
+            </figure>
+            <h3 class="mini-name">Guia de Tekken 8</h3>
+            <p>
+              Guias de matchup mantidos por um grupo de jogadores: o que punir e como
+              sair da pressão de cada personagem. Astro Starlight, em português e
+              inglês, e nada entra no main sem revisão de outra pessoa.
+            </p>
+            <p><a class="link-plain" href="https://github.com/LadislauLopes/Guide-Tekken" rel="noopener">Código no GitHub</a></p>
+          </article>
+          <article class="mini" data-reveal style="--i: 1">
+            <h3 class="mini-name">Homelab DevOps</h3>
+            <p>
+              GitLab CE com runner, Plane CE e um registry Docker com TLS, tudo em
+              Docker Compose. Como o Plane só integra com o GitLab na edição paga,
+              escrevi a ponte: um serviço em FastAPI que sincroniza os dois por
+              webhooks, nos dois sentidos e sem laço.
+            </p>
+            <h3 class="mini-name mini-more">Outros projetos</h3>
+            <ul class="more" role="list">
+              <li><strong>Pipeline de 40 franquias</strong>: data warehouse medalhão com Airflow, DuckDB, dbt e FastAPI</li>
+              <li><strong>Placas com YOLOv8</strong>: TCC em Sistemas de Informação na Ufac</li>
+              <li><strong>Ataque de temporização</strong>: demonstração de por que existe o hmac.compare_digest</li>
+              <li><strong><a class="link" href="https://github.com/LadislauLopes/pagina-yugi" rel="noopener">Liga Yu-Gi-Oh! Acreana</a></strong>: página e importador de torneios em Python</li>
+              <li><strong>Controle de estoque</strong>: meu primeiro sistema completo, no estágio da Polícia Federal</li>
             </ul>
-          </section>
+          </article>
         </div>
-        <aside class="stage" aria-label="Imagem da seção"></aside>
-      </div>
+      </section>
 
-      <section class="about" id="trajetoria" aria-labelledby="sobre-titulo">
-        <figure class="band" data-reveal>
-          <img src="assets/images/gameleira-faixa.jpg" width="1400" height="525" loading="lazy" alt="Casarões do Calçadão da Gameleira, à beira do Rio Acre, ao entardecer" />
-          <figcaption>Calçadão da Gameleira, onde Rio Branco começou.</figcaption>
-        </figure>
-
-        <div class="letter">
-          <h2 class="sr-only" id="sobre-titulo">Sobre mim</h2>
-          <p data-reveal>
-            Sou de Rio Branco e aprendi a programar resolvendo problemas de
-            verdade. Comecei no suporte da UniNorte, configurando redes e
-            consertando máquinas, e no estágio da Polícia Federal fiz meu
-            primeiro sistema inteiro: o controle de estoque do setor de TI, em
-            Python.
+      <!-- 4. Trajetória e ferramentas -->
+      <section class="record" id="trajetoria" aria-labelledby="trajetoria-titulo">
+        <div class="section-head">
+          <h2 class="head" id="trajetoria-titulo" data-reveal>Trajetória</h2>
+          <p data-reveal style="--i: 1">
+            Sou de Rio Branco e aprendi a programar resolvendo problemas de verdade.
+            Gosto de trabalho testado, documentado em README e ADR e com um deploy
+            que não depende de alguém lembrar de um passo.
           </p>
-          <p data-reveal>
-            Em 2024 entrei no Tribunal de Justiça do Acre como estagiário de
-            desenvolvimento, com foco em automação. Ali passei dos robôs em
-            Selenium para APIs em Flask e FastAPI, para IA generativa em
-            produção e, cada vez mais, para a infraestrutura que põe tudo isso
-            no ar.
-          </p>
-          <p data-reveal>
-            Desde maio de 2026 sou desenvolvedor pleno pela SONDA IT, nos
-            projetos do Tribunal. Cuido do chatbot de atendimento com RAG, dos
-            pipelines de GitLab CI do time e da stack de Airflow e Selenoid em
-            Docker onde rodam as automações.
-          </p>
-          <p data-reveal>
-            Gosto de deixar o trabalho testado, documentado em README e ADR e
-            com um deploy que não depende de alguém lembrar de um passo. E dado
-            de pessoa pede cuidado: mascaramento de CPF e atenção à LGPD
-            fazem parte do serviço.
-          </p>
-          <p data-reveal>
-            Me formo em Sistemas de Informação pela Ufac em 2026. Fora do
-            trabalho, mantenho um homelab com GitLab e Plane, escrevo guias de
-            Tekken 8 com outros jogadores e fiz a página da liga de Yu-Gi-Oh!
-            do Acre.
-          </p>
-          <p class="signature" data-reveal>Ladislau Lopes da Silva Júnior</p>
-          <p class="signature-role">Desenvolvedor Python pleno, Rio Branco (AC)</p>
         </div>
-
-        <div class="record">
-          <h2 class="head" data-reveal>Trajetória</h2>
+        <div class="record-grid">
           <table class="timeline" data-reveal>
             <caption class="sr-only">Experiência profissional, do emprego atual ao primeiro estágio</caption>
             <thead>
-              <tr><th scope="col">Período</th><th scope="col">Cargo</th><th scope="col">O que fiz</th></tr>
+              <tr><th scope="col">Período</th><th scope="col">Cargo</th></tr>
             </thead>
             <tbody>
-              <tr>
-                <td class="nums">mai. 2026 – hoje</td>
-                <th scope="row">Desenvolvedor pleno<span>SONDA IT, nos projetos do Tribunal de Justiça do Acre</span></th>
-                <td>Chatbot com RAG em produção, pipelines de GitLab CI do time, stack de Airflow 3 e Selenoid em Docker, serviços self-hosted e saneamento de dados processuais.</td>
-              </tr>
-              <tr>
-                <td class="nums">mai. 2024 – mai. 2026</td>
-                <th scope="row">Estagiário de desenvolvimento<span>Tribunal de Justiça do Acre</span></th>
-                <td>Robôs RPA com Selenium e Selenoid, certidões em PDF, métricas em Django, APIs em FastAPI e os primeiros deploys com Docker e GitLab CI. Levei o Airflow e o Selenoid para o time.</td>
-              </tr>
-              <tr>
-                <td class="nums">fev. 2023 – mai. 2024</td>
-                <th scope="row">Estagiário de TI<span>Polícia Federal no Acre</span></th>
-                <td>Controle de estoque do setor, automação com Selenium e projetos conduzidos do início ao fim.</td>
-              </tr>
-              <tr>
-                <td class="nums">nov. 2022 – ago. 2023</td>
-                <th scope="row">Estagiário de suporte<span>UniNorte</span></th>
-                <td>Suporte ao usuário, manutenção de hardware e configuração de redes.</td>
-              </tr>
-              <tr>
-                <td class="nums">2026</td>
-                <th scope="row">Bacharelado em Sistemas de Informação<span>Universidade Federal do Acre (Ufac)</span></th>
-                <td>Formação superior. Cursos e formações na Alura em software, dados e tecnologia, e o programa Nave Tech Samsung.</td>
-              </tr>
+              <tr><td class="nums">mai. 2026 – hoje</td><th scope="row">Desenvolvedor pleno<span>SONDA IT, nos projetos do TJAC</span></th></tr>
+              <tr><td class="nums">mai. 2024 – mai. 2026</td><th scope="row">Estagiário de desenvolvimento<span>Tribunal de Justiça do Acre</span></th></tr>
+              <tr><td class="nums">fev. 2023 – mai. 2024</td><th scope="row">Estagiário de TI<span>Polícia Federal no Acre</span></th></tr>
+              <tr><td class="nums">nov. 2022 – ago. 2023</td><th scope="row">Estagiário de suporte<span>UniNorte</span></th></tr>
+              <tr><td class="nums">2026</td><th scope="row">Sistemas de Informação<span>Universidade Federal do Acre (Ufac)</span></th></tr>
             </tbody>
           </table>
-
-          <h2 class="head" id="ferramentas" data-reveal>Ferramentas</h2>
-          <dl class="tools" data-reveal>
-            <div><dt>DevOps</dt><dd>Docker e Docker Compose, GitLab CI/CD com Docker-in-Docker, runners e registry, deploy por SSH, Nginx, Gunicorn, Linux, healthchecks e limites de recursos.</dd></div>
-            <div><dt>Self-hosted</dt><dd>Chatwoot, Elasticsearch e Kibana, Selenoid, GitLab CE, Plane CE e registry Docker com TLS.</dd></div>
-            <div><dt>IA generativa</dt><dd>RAG, embeddings, busca semântica, reranking, engenharia de prompts, pgvector com HNSW, Gemini (Vertex AI) e Grok (xAI).</dd></div>
-            <div><dt>Python e APIs</dt><dd>Flask, FastAPI, Django, SQLAlchemy, Swagger/OpenAPI e webhooks.</dd></div>
-            <div><dt>Dados</dt><dd>Apache Airflow 3, pandas, DuckDB, dbt, Elasticsearch, ETL com carga incremental.</dd></div>
-            <div><dt>Bancos de dados</dt><dd>PostgreSQL, MySQL, Oracle, CouchDB, SQLite e pgvector.</dd></div>
-            <div><dt>Front-end</dt><dd>React 19, Material UI, JavaScript, HTML, CSS e Astro.</dd></div>
-            <div><dt>Qualidade</dt><dd>Git com branches e merge requests, testes com pytest, investigação de bugs e de desempenho, documentação em README e ADR.</dd></div>
-            <div><dt>Domínio</dt><dd>Judiciário (eproc, SAJ, TPU do CNJ, DataJud) e LGPD. No dia a dia, desenvolvimento assistido por IA com Claude Code.</dd></div>
+          <dl class="tools" data-reveal style="--i: 1">
+            <div><dt>Python e APIs</dt><dd>Flask, FastAPI, Django, SQLAlchemy, pytest</dd></div>
+            <div><dt>Dados</dt><dd>Airflow 3, pandas, DuckDB, dbt, PostgreSQL, MySQL, Oracle, Elasticsearch</dd></div>
+            <div><dt>IA generativa</dt><dd>RAG, embeddings, pgvector com HNSW, reranking, Gemini</dd></div>
+            <div><dt>DevOps</dt><dd>Docker, GitLab CI/CD, Selenoid, Nginx, Linux</dd></div>
+            <div><dt>Front-end</dt><dd>React 19, JavaScript, HTML, CSS, Astro</dd></div>
+            <div><dt>Domínio</dt><dd>Judiciário (eproc, SAJ, TPU do CNJ) e LGPD</dd></div>
           </dl>
         </div>
       </section>
 
-      <div class="split" data-split>
-        <div class="column">
-          <section class="testimonial" id="recomendacao" data-plate="declaracao" aria-label="Recomendação">
-            <figure class="plate plate-doc" data-plate-id="declaracao">
-              <img src="assets/images/declaracao-pf.jpg" width="910" height="1287" loading="lazy" alt="Primeira página da declaração de recomendação emitida pelo Núcleo de Tecnologia da Informação da Polícia Federal no Acre" />
-            </figure>
-            <blockquote data-reveal>
-              <p>
-                “Ele tem bastante conhecimento em programação, especificamente na
-                linguagem Python. […] o Ladislau é uma pessoa esforçada sempre
-                buscando o aprendizado e o conhecimento profissional.”
-              </p>
-            </blockquote>
-            <p class="cite" data-reveal style="--i: 1">
-              Frank Shinji Nishi, chefe do Núcleo de Tecnologia da Informação da
-              Polícia Federal no Acre, em declaração de recomendação de 2025.
-            </p>
-            <p data-reveal style="--i: 2"><a class="link-plain" href="assets/docs/declaracao-policia-federal.pdf">Ler a declaração completa (PDF)</a></p>
-          </section>
-
-          <section class="cvs" id="curriculos" data-plate="cv-python" aria-labelledby="cv-titulo">
-            <h2 class="head" id="cv-titulo" data-reveal>Currículos</h2>
-            <div class="tabs" role="tablist" aria-label="Versões do currículo">
-              <button type="button" role="tab" id="tab-python" aria-controls="cv-python" aria-selected="true">Python</button>
-              <button type="button" role="tab" id="tab-dados" aria-controls="cv-dados" aria-selected="false" tabindex="-1">Dados</button>
-              <button type="button" role="tab" id="tab-ia" aria-controls="cv-ia" aria-selected="false" tabindex="-1">IA generativa</button>
-            </div>
-
-            <div class="cv-panel" id="cv-python" role="tabpanel" aria-labelledby="tab-python" data-plate-for="cv-python">
-              <figure class="plate plate-doc" data-plate-id="cv-python">
-                <img src="assets/images/cv-python.jpg" width="909" height="1287" loading="lazy" alt="Primeira página do currículo para vagas de desenvolvedor Python" />
-              </figure>
-              <h3 class="cv-title">Desenvolvedor Python</h3>
-              <p>
-                Para vagas de APIs e integrações. Desenvolvo APIs REST em Flask,
-                FastAPI e Django e integro sistemas por APIs e webhooks, com testes
-                automatizados, documentação técnica e entrega por Docker e GitLab
-                CI/CD. Tenho IA generativa em produção e atuo também no front-end
-                com React.
-              </p>
-              <div class="cells">
-                <a class="cell cell-main" href="assets/docs/curriculo-ladislau-lopes-python.pdf" download>Baixar PDF</a>
-                <a class="cell" href="#contato">Falar comigo</a>
-              </div>
-            </div>
-
-            <div class="cv-panel" id="cv-dados" role="tabpanel" aria-labelledby="tab-dados" data-plate-for="cv-dados">
-              <figure class="plate plate-doc" data-plate-id="cv-dados">
-                <img src="assets/images/cv-dados.jpg" width="909" height="1287" loading="lazy" alt="Primeira página do currículo para vagas de engenharia de dados" />
-              </figure>
-              <h3 class="cv-title">Engenharia de dados</h3>
-              <p>
-                Para vagas de dados. Construo e mantenho pipelines em Python
-                orquestrados com Apache Airflow, integrando PostgreSQL, MySQL,
-                Oracle, CouchDB e Elasticsearch, com carga incremental, alertas de
-                falha e deploy por GitLab CI. Também cuido da ingestão de
-                documentos e da busca vetorial de um chatbot em produção.
-              </p>
-              <div class="cells">
-                <a class="cell cell-main" href="assets/docs/curriculo-ladislau-lopes-dados.pdf" download>Baixar PDF</a>
-                <a class="cell" href="#contato">Falar comigo</a>
-              </div>
-            </div>
-
-            <div class="cv-panel" id="cv-ia" role="tabpanel" aria-labelledby="tab-ia" data-plate-for="cv-ia">
-              <figure class="plate plate-doc" data-plate-id="cv-ia">
-                <img src="assets/images/cv-ia.jpg" width="909" height="1287" loading="lazy" alt="Primeira página do currículo para vagas de IA generativa e dados" />
-              </figure>
-              <h3 class="cv-title">IA generativa e dados</h3>
-              <p>
-                Para vagas de IA. Desenvolvo soluções de IA generativa com RAG
-                (Gemini no Vertex AI, embeddings e pgvector), engenharia de
-                prompts testada com pytest e pipelines de dados com Apache
-                Airflow, entregues com Docker e GitLab CI/CD.
-              </p>
-              <div class="cells">
-                <a class="cell cell-main" href="assets/docs/curriculo-ladislau-lopes-ia-generativa.pdf" download>Baixar PDF</a>
-                <a class="cell" href="#contato">Falar comigo</a>
-              </div>
-            </div>
-          </section>
-
-          <section class="contact" id="contato" data-plate="passarela" aria-labelledby="contato-titulo">
-            <figure class="plate plate-photo" data-plate-id="passarela">
-              <img src="assets/images/passarela.jpg" width="1400" height="936" loading="lazy" alt="Passarela Joaquim Macedo iluminada à noite sobre o Rio Acre, em Rio Branco" />
-            </figure>
-            <h2 class="sr-only" id="contato-titulo">Contato</h2>
-            <p class="prompt" data-reveal>
-              <span>Tem uma vaga ou um projeto?</span>
-              <span>Escreva aqui que eu respondo.</span>
-            </p>
-            <form class="contact-form" action="mailto:ladislau.contato.01@gmail.com" method="get" enctype="text/plain" data-reveal style="--i: 1">
-              <input type="hidden" name="subject" value="Contato pelo portfólio" />
-              <label class="sr-only" for="mensagem">Sua mensagem</label>
-              <input class="contact-field" id="mensagem" name="body" type="text" placeholder="Sua mensagem" required />
-              <button class="contact-send" type="submit" aria-label="Enviar por email">
-                <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" /></svg>
-              </button>
-            </form>
-            <p class="contact-note">Abre o seu programa de email com a mensagem pronta.</p>
+      <!-- 5. Fechamento: recomendação, currículos e contato -->
+      <section class="close" id="contato" aria-labelledby="contato-titulo">
+        <h2 class="close-title" id="contato-titulo" data-reveal>Tem uma vaga ou um projeto?</h2>
+        <div class="close-grid">
+          <div class="close-main" data-reveal style="--i: 1">
             <dl class="contact-rows">
               <div><dt>Email</dt><dd><a class="link" href="mailto:ladislau.contato.01@gmail.com">ladislau.contato.01@gmail.com</a></dd></div>
               <div><dt>Telefone</dt><dd><a class="link" href="tel:+5568999328239">(68) 99932-8239</a></dd></div>
               <div><dt>LinkedIn</dt><dd><a class="link" href="https://www.linkedin.com/in/ladislaulopes/" rel="noopener">in/ladislaulopes</a></dd></div>
               <div><dt>GitHub</dt><dd><a class="link" href="https://github.com/LadislauLopes" rel="noopener">LadislauLopes</a></dd></div>
             </dl>
-          </section>
-
-          <footer class="footer" data-plate="mercado">
-            <figure class="plate plate-photo" data-plate-id="mercado">
-              <img src="assets/images/mercado-velho.jpg" width="1400" height="936" loading="lazy" alt="Fachada iluminada do Mercado Velho de Rio Branco à noite" />
-            </figure>
-            <p class="wordmark">Ladislau Lopes</p>
-            <nav class="menu" aria-label="Seções">
-              <a href="#trabalho">Trabalho</a>
-              <a href="#projetos">Projetos</a>
-              <a href="#trajetoria">Trajetória</a>
-              <a href="#curriculos">Currículos</a>
-              <a href="#contato">Contato</a>
-            </nav>
-            <div class="footer-blocks">
-              <p>Rio Branco, Acre<br /><a class="link" href="mailto:ladislau.contato.01@gmail.com">ladislau.contato.01@gmail.com</a></p>
-              <p><a class="link" href="https://www.linkedin.com/in/ladislaulopes/" rel="noopener">LinkedIn</a><br /><a class="link" href="https://github.com/LadislauLopes" rel="noopener">GitHub</a></p>
+            <div class="cvs" id="curriculos">
+              <h3 class="cvs-title">Currículos em PDF</h3>
+              <div class="cells">
+                <a class="cell" href="assets/docs/curriculo-ladislau-lopes-python.pdf" download>Desenvolvedor Python</a>
+                <a class="cell" href="assets/docs/curriculo-ladislau-lopes-dados.pdf" download>Engenharia de dados</a>
+                <a class="cell" href="assets/docs/curriculo-ladislau-lopes-ia-generativa.pdf" download>IA generativa e dados</a>
+              </div>
             </div>
-            <p class="legal">
-              © 2026 Ladislau Lopes da Silva Júnior. Fotos de Rio Branco do MTur
-              Destinos, em domínio público via Wikimedia Commons, impressas em azul:
-              <a class="link-plain" href="https://commons.wikimedia.org/wiki/File:Assis_Lima_Rio_Acre_vista_Ponte_Jucelio_Kubitschek_e_Ponte_coronel_Sebasti%C3%A3o_Dantas_Passarela_Joaquim_Macedo_Rio_Branco_AC_(26992942418).jpg" rel="noopener">Rio Acre</a>,
-              <a class="link-plain" href="https://commons.wikimedia.org/wiki/File:Assis_Lima_Passarela_Joaquim_Macedo_Rio_Branco_AC_(40821870442).jpg" rel="noopener">Passarela Joaquim Macedo</a>
-              e <a class="link-plain" href="https://commons.wikimedia.org/wiki/File:Assis_Lima_Novo_Mercado_Velho_Rio_Branco_AC_(25990981657).jpg" rel="noopener">Mercado Velho</a>
-              por Assis Lima;
-              <a class="link-plain" href="https://commons.wikimedia.org/wiki/File:Cal%C3%A7ad%C3%A3o_da_Gameleira,_Rio_Branco_Acre.jpg" rel="noopener">Calçadão da Gameleira</a>
-              por Marco Vicentti. Tipo STIX Two Text, licença OFL.
-            </p>
-          </footer>
+          </div>
+          <figure class="quote" data-reveal style="--i: 2">
+            <blockquote>
+              <p>
+                “Ele tem bastante conhecimento em programação, especificamente na
+                linguagem Python. […] o Ladislau é uma pessoa esforçada sempre
+                buscando o aprendizado e o conhecimento profissional.”
+              </p>
+            </blockquote>
+            <figcaption>
+              Frank Shinji Nishi, chefe do Núcleo de Tecnologia da Informação da
+              Polícia Federal no Acre, 2025.
+              <a class="link-plain" href="assets/docs/declaracao-policia-federal.pdf">Ler a declaração (PDF)</a>
+            </figcaption>
+          </figure>
         </div>
-        <aside class="stage" aria-label="Imagem da seção"></aside>
-      </div>
+        <footer class="footer">
+          <p>© 2026 Ladislau Lopes da Silva Júnior · Rio Branco, Acre</p>
+          <p>Tipos Space Grotesk e Inter, licença OFL.</p>
+        </footer>
+      </section>
     </main>
 
     <script src="assets/js/scripts.js"></script>

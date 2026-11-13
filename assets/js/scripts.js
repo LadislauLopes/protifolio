@@ -1,10 +1,8 @@
 // Portfólio de Ladislau Lopes.
-// Sem dependências. Tudo funciona sem JavaScript: as figuras ficam no fluxo e as descrições
-// abertas. Com JavaScript, no desktop, as figuras vão para o palco fixo da direita.
+// Sem dependências. Tudo funciona sem JavaScript: o conteúdo aparece inteiro e o combo,
+// completo. Com JavaScript, as seções entram ao rolar e o controle vira jogável.
 
 (() => {
-  const wide = window.matchMedia("(min-width: 64em)");
-
   /* ---------------------------------------------------------------------------------------
      Revelação ao rolar: uma vez por elemento, nunca deixa conteúdo escondido
   --------------------------------------------------------------------------------------- */
@@ -34,159 +32,247 @@
   }
 
   /* ---------------------------------------------------------------------------------------
-     Palco: cada split tem uma metade fixa que mostra a figura da seção ativa
+     O combo jogável: cada hit é uma etapa da plataforma de automação.
+     Notação numérica de 4 botões; "f" é para a frente com o jogador do lado esquerdo.
   --------------------------------------------------------------------------------------- */
-  const splits = [...document.querySelectorAll("[data-split]")].map((el) => {
-    const stage = el.querySelector(".stage");
-    const plates = document.createElement("div");
-    plates.className = "stage-plates";
-    stage.appendChild(plates);
-    const figures = [...el.querySelectorAll("figure.plate[data-plate-id]")].map((fig) => ({
-      fig,
-      parent: fig.parentNode,
-      next: fig.nextSibling,
+  const pad = document.querySelector("[data-pad]");
+  if (pad) {
+    const board = pad.querySelector("[data-board]");
+    const ball = pad.querySelector("[data-ball]");
+    const countEl = pad.querySelector("[data-count]");
+    const wordEl = pad.querySelector("[data-word]");
+    const logEl = pad.querySelector("[data-log]");
+    const btnEls = {};
+    pad.querySelectorAll("[data-btn]").forEach((b) => (btnEls[b.dataset.btn] = b));
+    const comboSection = document.getElementById("combo");
+    const moveEls = [...comboSection.querySelectorAll("[data-moves] li")];
+    const moves = moveEls.map((li) => ({
+      input: li.querySelector(".move-input").textContent,
+      stage: li.querySelector(".move-stage").textContent,
+      what: li.querySelector(".move-what").textContent,
     }));
-    return { el, stage, plates, figures, owners: [...el.querySelectorAll("[data-plate]")], current: null };
-  });
+    const demoBtn = comboSection.querySelector("[data-demo]");
+    const resetBtn = comboSection.querySelector("[data-reset]");
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  function setPlate(split, id) {
-    if (!split || split.current === id) return;
-    split.current = id;
-    for (const { fig } of split.figures) fig.classList.toggle("is-active", fig.dataset.plateId === id);
-  }
+    // um passo por hit: botões (juntos), direção segurada ou toques para a frente
+    const STEPS = [
+      { move: 0, btns: "4", dir: "uf" },
+      { move: 1, btns: "4" },
+      { move: 2, btns: "3", taps: 2 },
+      { move: 3, btns: "1", dir: "b" },
+      { move: 3, btns: "2" },
+      { move: 4, btns: "34", dir: "f" },
+      { move: 4, btns: "2" },
+      { move: 5, btns: "2" },
+      { move: 6, btns: "24", taps: 3 },
+    ];
+    const GAP = 1600;      // ms máximos entre um hit e o próximo
+    const TOGETHER = 110;  // ms para botões contarem como simultâneos
+    const TAP_WINDOW = 900;
+    const START = "Comece pelo <strong>uf4</strong>: segure para cima e para a frente e aperte 4.";
+    const OFFSET = { n: [0, 0], u: [0, -1], d: [0, 1], f: [1, 0], b: [-1, 0], uf: [0.7, -0.7], ub: [-0.7, -0.7], df: [0.7, 0.7], db: [-0.7, 0.7] };
 
-  function setOwner(split, owner) {
-    split.owners.forEach((o) => o.classList.toggle("is-current", o === owner));
-    if (owner) setPlate(split, owner.dataset.plate);
-  }
+    let step = 0, lastHit = 0, done = false, demo = false, pending = null;
+    let taps = [], timers = [];
+    const held = new Set();
 
-  function place() {
-    if (wide.matches) {
-      for (const split of splits) {
-        for (const { fig } of split.figures) split.plates.appendChild(fig);
-        split.current = null;
-        setPlate(split, split.owners[0].dataset.plate);
+    const dirNow = () => {
+      const v = held.has("u") ? "u" : held.has("d") ? "d" : "";
+      const h = held.has("f") ? "f" : held.has("b") ? "b" : "";
+      return v + h || "n";
+    };
+    const drawStick = () => {
+      const [x, y] = OFFSET[dirNow()];
+      ball.style.transform = `translate(${x * 30}%, ${y * 30}%)`;
+    };
+    const setCount = (n) => {
+      countEl.textContent = n;
+      wordEl.textContent = n === 1 ? "hit" : "hits";
+    };
+    const log = (html) => (logEl.innerHTML = html);
+
+    function reset(message = START) {
+      step = 0; lastHit = 0; done = false;
+      setCount(0);
+      moveEls.forEach((li) => li.classList.remove("is-hit"));
+      log(message);
+    }
+
+    function dirDown(k) {
+      if (k === "f" && !held.has("f")) taps.push(performance.now());
+      if (taps.length > 12) taps = taps.slice(-6);
+      held.add(k);
+      drawStick();
+    }
+    function dirUp(k) { held.delete(k); drawStick(); }
+    function setDir(d) { // demonstração e as setas da tela
+      for (const k of ["u", "d", "f", "b"]) if (!d.includes(k)) held.delete(k);
+      if (d !== "n") for (const k of d.match(/[udfb]/g)) if (!held.has(k)) dirDown(k);
+      drawStick();
+    }
+
+    function flash(n, hit) {
+      const el = btnEls[n];
+      el.classList.add("is-down");
+      setTimeout(() => el.classList.remove("is-down"), 130);
+      if (hit) {
+        el.classList.remove("is-hit");
+        void el.offsetWidth; // reinicia a animação do anel
+        el.classList.add("is-hit");
       }
-      onScroll();
-    } else {
-      for (const split of splits) {
-        for (const { fig, parent, next } of split.figures) {
-          fig.classList.remove("is-active");
-          parent.insertBefore(fig, next && next.parentNode === parent ? next : null);
-        }
+    }
+
+    function press(n) {
+      const now = performance.now();
+      flash(n, false);
+      // o mesmo botão de novo dentro da janela (o 2,2 rápido do f3+4,2 → 2) é outro golpe:
+      // fecha o anterior na hora em vez de juntar os dois num aperto só
+      if (pending && pending.btns.has(n)) {
+        clearTimeout(pending.timer);
+        resolve();
+      }
+      if (!pending) {
+        pending = { btns: new Set(), dir: dirNow(), at: now };
+        pending.timer = setTimeout(resolve, TOGETHER);
+      }
+      pending.btns.add(n);
+    }
+
+    function matches(exp, got, dir, now) {
+      if (got !== exp.btns) return false;
+      if (exp.dir === "uf" && dir !== "uf") return false;
+      if ((exp.dir === "b" || exp.dir === "f") && !dir.endsWith(exp.dir)) return false;
+      if (exp.taps) {
+        const since = Math.max(lastHit, now - TAP_WINDOW);
+        if (taps.filter((t) => t >= since).length < exp.taps) return false;
+      }
+      return true;
+    }
+
+    function resolve() {
+      const { btns, dir, at } = pending;
+      pending = null;
+      const got = [...btns].sort().join("");
+      if (done) reset();
+      if (step > 0 && at - lastHit > GAP) reset("Demorou demais entre os golpes. " + START);
+      if (matches(STEPS[step], got, dir, at)) return hit(btns, at);
+      if (step > 0) {
+        const where = step;
+        reset();
+        if (matches(STEPS[0], got, dir, at)) return hit(btns, at);
+        return log(`O combo caiu no hit ${where + 1}: era <strong>${moves[STEPS[where].move].input}</strong>. ${START}`);
+      }
+      log(START);
+    }
+
+    function hit(btns, at) {
+      const exp = STEPS[step];
+      btns.forEach((n) => flash(n, true));
+      step += 1;
+      lastHit = at;
+      setCount(step);
+      moveEls[exp.move].classList.add("is-hit");
+      const m = moves[exp.move];
+      if (step === STEPS.length) {
+        done = true;
+        log("<strong>Combo completo:</strong> do agendamento ao aviso no chat.");
+      } else {
+        log(`<strong>${m.input} · ${m.stage}</strong>: ${m.what}.`);
       }
     }
-  }
 
-  // A seção ativa é a que cruza a linha do meio da tela.
-  let ticking = false;
-  function onScroll() {
-    ticking = false;
-    if (!wide.matches) return;
-    const mid = innerHeight * 0.5;
-    for (const split of splits) {
-      const r = split.el.getBoundingClientRect();
-      if (r.top > mid || r.bottom < mid) continue;
-      let owner = split.owners[0];
-      for (const o of split.owners) {
-        if (o.offsetParent === null) continue;
-        if (o.getBoundingClientRect().top <= mid) owner = o;
-      }
-      setOwner(split, owner);
-    }
-  }
-  window.addEventListener("scroll", () => {
-    if (!ticking) {
-      ticking = true;
-      requestAnimationFrame(onScroll);
-    }
-  }, { passive: true });
-  window.addEventListener("resize", () => requestAnimationFrame(onScroll));
-  wide.addEventListener("change", place);
-
-  // Passar o mouse ou focar um item do trabalho mostra o diagrama dele na hora.
-  for (const split of splits) {
-    for (const owner of split.owners) {
-      if (!owner.matches(".work-item")) continue;
-      const show = () => wide.matches && setOwner(split, owner);
-      owner.addEventListener("mouseenter", show);
-      owner.addEventListener("focusin", show);
-    }
-  }
-
-  /* ---------------------------------------------------------------------------------------
-     Projetos: uma linha aberta por vez; o palco mostra a linha aberta (ou a apontada)
-  --------------------------------------------------------------------------------------- */
-  const projectSection = document.getElementById("projetos");
-  const projectSplit = splits.find((s) => s.el.contains(projectSection));
-  const projects = [...document.querySelectorAll(".project")];
-  projects.forEach((p) => (p.dataset.plateRef = p.querySelector("figure.plate").dataset.plateId));
-  const showProjects = (id) => wide.matches && projectSection.classList.contains("is-current") && setPlate(projectSplit, id);
-
-  function openProject(project) {
-    for (const p of projects) {
-      const open = p === project && !p.classList.contains("is-open");
-      p.classList.toggle("is-open", open);
-      p.querySelector(".project-row").setAttribute("aria-expanded", String(open));
-    }
-    projectSection.dataset.plate = project.dataset.plateRef;
-    showProjects(project.dataset.plateRef);
-  }
-  projects.forEach((p, i) => {
-    const open = i === 0;
-    p.classList.toggle("is-open", open);
-    p.querySelector(".project-row").setAttribute("aria-expanded", String(open));
-    p.querySelector(".project-row").addEventListener("click", () => openProject(p));
-    p.addEventListener("mouseenter", () => showProjects(p.dataset.plateRef));
-    p.addEventListener("focusin", () => showProjects(p.dataset.plateRef));
-  });
-  projectSection.querySelector(".project-list").addEventListener("mouseleave", () => showProjects(projectSection.dataset.plate));
-
-  /* ---------------------------------------------------------------------------------------
-     Currículos: abas
-  --------------------------------------------------------------------------------------- */
-  const cvSection = document.getElementById("curriculos");
-  const tabs = [...document.querySelectorAll('[role="tab"]')];
-  const panels = tabs.map((t) => document.getElementById(t.getAttribute("aria-controls")));
-  function selectTab(tab, focus) {
-    tabs.forEach((t, i) => {
-      const on = t === tab;
-      t.setAttribute("aria-selected", String(on));
-      t.tabIndex = on ? 0 : -1;
-      panels[i].hidden = !on;
-    });
-    cvSection.dataset.plate = tab.getAttribute("aria-controls");
-    const split = splits.find((s) => s.el.contains(cvSection));
-    if (wide.matches && cvSection.classList.contains("is-current")) setPlate(split, cvSection.dataset.plate);
-    if (focus) tab.focus();
-  }
-  tabs.forEach((tab, i) => {
-    tab.addEventListener("click", () => selectTab(tab));
-    tab.addEventListener("keydown", (e) => {
-      const step = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
-      if (!step) return;
+    // teclado, só com o controle em foco (fora dele as setas continuam rolando a página)
+    const KEYS = {
+      ArrowLeft: "b", a: "b", ArrowRight: "f", d: "f", ArrowUp: "u", w: "u", ArrowDown: "d", s: "d",
+      u: "1", i: "2", j: "3", k: "4", 1: "1", 2: "2", 3: "3", 4: "4",
+    };
+    const keyOf = (e) => KEYS[e.key.length === 1 ? e.key.toLowerCase() : e.key];
+    board.addEventListener("keydown", (e) => {
+      const key = keyOf(e);
+      if (!key || e.ctrlKey || e.metaKey || e.altKey) return;
       e.preventDefault();
-      selectTab(tabs[(i + step + tabs.length) % tabs.length], true);
+      if (demo || e.repeat) return;
+      if ("1234".includes(key)) press(key);
+      else dirDown(key);
     });
-  });
+    board.addEventListener("keyup", (e) => {
+      const key = keyOf(e);
+      if (key && !"1234".includes(key)) dirUp(key);
+    });
+    board.addEventListener("blur", () => { held.clear(); drawStick(); });
 
-  /* ---------------------------------------------------------------------------------------
-     Contato: abre o email com a mensagem pronta
-  --------------------------------------------------------------------------------------- */
-  const contactForm = document.querySelector(".contact-form");
-  const contactField = document.getElementById("mensagem");
-  contactForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const body = contactField.value.trim();
-    if (!body) return contactField.focus();
-    const subject = "Contato pelo portfólio";
-    window.location.href =
-      "mailto:ladislau.contato.01@gmail.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-  });
+    // mouse e toque
+    Object.entries(btnEls).forEach(([n, el]) =>
+      el.addEventListener("pointerdown", (e) => {
+        e.preventDefault();
+        board.focus({ preventScroll: true });
+        if (!demo) press(n);
+      })
+    );
+    pad.querySelectorAll("[data-dir]").forEach((el) => {
+      const d = el.dataset.dir;
+      el.addEventListener("pointerdown", (e) => {
+        e.preventDefault();
+        if (demo) return;
+        el.classList.add("is-down");
+        setDir(d);
+      });
+      const up = () => {
+        if (!el.classList.contains("is-down")) return;
+        el.classList.remove("is-down");
+        setDir("n");
+      };
+      ["pointerup", "pointerleave", "pointercancel"].forEach((t) => el.addEventListener(t, up));
+    });
 
-  /* ---------------------------------------------------------------------------------------
-     Início
-  --------------------------------------------------------------------------------------- */
-  selectTab(tabs[0]);
-  place();
+    // demonstração: os mesmos inputs, nos tempos do combo do perfil do GitHub
+    const SCRIPT = [
+      [500, "uf"], [620, "4"], [800, "n"], [1150, "4"],
+      [1600, "f"], [1720, "n"], [1820, "f"], [1950, "3"], [2200, "n"],
+      [2600, "b"], [2720, "1"], [2850, "n"], [3000, "2"],
+      [3500, "f"], [3620, "34"], [3750, "n"], [3920, "2"], [4400, "2"],
+      [4900, "f"], [5000, "n"], [5100, "f"], [5200, "n"], [5300, "f"], [5450, "24"], [5700, "n"],
+    ];
+    function stopDemo() {
+      timers.forEach(clearTimeout);
+      timers = [];
+      demo = false;
+      held.clear();
+      drawStick();
+    }
+    function runDemo() {
+      stopDemo();
+      reset("Assista: o combo inteiro, um golpe por etapa.");
+      demo = true;
+      for (const [t, what] of SCRIPT) {
+        timers.push(setTimeout(() => {
+          if (/^\d+$/.test(what)) what.split("").forEach(press);
+          else setDir(what);
+        }, t));
+      }
+      timers.push(setTimeout(() => {
+        demo = false;
+        log("<strong>Combo completo:</strong> do agendamento ao aviso no chat. Agora é a sua vez.");
+      }, 6000));
+    }
+    demoBtn.addEventListener("click", runDemo);
+    resetBtn.addEventListener("click", () => {
+      stopDemo();
+      reset();
+      board.focus({ preventScroll: true });
+    });
+
+    // a demonstração roda sozinha uma vez, quando a seção do combo chega na tela
+    reset();
+    if ("IntersectionObserver" in window && !reduced.matches) {
+      const seen = new IntersectionObserver((entries) => {
+        if (!entries.some((e) => e.isIntersecting)) return;
+        seen.disconnect();
+        setTimeout(runDemo, 600);
+      }, { threshold: 0.35 });
+      seen.observe(comboSection);
+    }
+  }
+
 })();

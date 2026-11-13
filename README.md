@@ -27,9 +27,21 @@ Endereço: <https://ladislaulopes.github.io/protifolio/>
 
 ## Como a página funciona
 
-- **Metade fixa (desktop):** a coluna da esquerda rola com o texto; a da direita mostra a imagem
-  da seção ativa (foto, diagrama, print ou documento). Em telas estreitas tudo fica numa coluna só.
-- **Sem JavaScript:** as figuras ficam no fluxo e os projetos abertos.
+Uma página curta (umas 6 telas) que diz o essencial:
+
+1. **Abertura:** nome, cargo, uma frase e o **combo jogável** ao lado. Cada golpe é uma etapa da
+   plataforma de automação, na ordem real (uf4 Airflow, 4 Docker, f,F+3 Selenoid, b1,2 Python,
+   f3+4,2 pandas, 2 PostgreSQL, f,f,F+2+4 Google Chat). Com o controle em foco: setas ou
+   W A S D na alavanca e U I J K ou 1 a 4 nos botões; no celular, a tela. A demonstração roda
+   sozinha uma vez (menos com movimento reduzido). As regras ficam em `STEPS`, no `scripts.js`.
+2. **No Tribunal de Justiça:** três destaques com diagrama (plataforma de automação, chatbot com
+   RAG, CI/CD e infraestrutura) e o resto numa linha.
+3. **Fora do expediente:** Arcade Builder, Guia de Tekken 8, Homelab e uma lista curta.
+4. **Trajetória:** linha do tempo e ferramentas, uma linha por área.
+5. **Fechamento:** contato, os três currículos em PDF e a recomendação da Polícia Federal.
+
+Identidade: a mesma do perfil do GitHub. Fundo azul-noite, branco frio do monitor e o âmbar da
+lâmpada como destaque. Um tema só, escuro. Sem JavaScript, tudo aparece e o combo fica completo.
 
 ## Estrutura
 
@@ -37,9 +49,9 @@ Endereço: <https://ladislaulopes.github.io/protifolio/>
 index.html
 assets/
   css/     reset.css e styles.css (tokens no topo)
-  js/      scripts.js (palco, projetos, abas e contato)
-  fonts/   STIX Two Text (woff2) e a licença OFL
-  images/  fotos e documentos impressos em azul (duotone)
+  js/      scripts.js (revelação ao rolar e o combo jogável)
+  fonts/   Space Grotesk e Inter (subconjuntos woff2) e a licença OFL
+  images/  render do Arcade Builder e print do Guia de Tekken 8
   docs/    currículos em PDF e a declaração da Polícia Federal
 ```
 
@@ -51,6 +63,4 @@ site, não capturas.
 
 ## Créditos
 
-- Fotos de Rio Branco: MTur Destinos (Assis Lima e Marco Vicentti), domínio público, via
-  Wikimedia Commons. Links na linha de créditos do rodapé.
-- Tipo: STIX Two Text, SIL Open Font License 1.1 (`assets/fonts/OFL.txt`).
+- Tipos: Space Grotesk e Inter, SIL Open Font License 1.1 (`assets/fonts/OFL.txt`).
